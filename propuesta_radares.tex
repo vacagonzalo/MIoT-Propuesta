@@ -7,6 +7,7 @@ headsepline,]{article}
 \usepackage{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{palatino}
+\usepackage{graphicx}
 
 %opening
 \title{Monitoreo y control de radares ATSA}
@@ -15,6 +16,7 @@ headsepline,]{article}
 \begin{document}
 
 \maketitle
+\thispagestyle{empty}
 
 \begin{abstract}
 
@@ -31,7 +33,7 @@ Este documento es una propuesta de proyecto en el marco de la Maestría en Inter
 \section{Propósito del proyecto}
 
 La Universidad de Buenos Aires (UBA) solicita que sus candidatos de Maestría realicen un proyecto que consuma 600 horas de ingeniería.
-Las características técnicas que se esperan son las siguientes:
+Las características técnicas esperadas son las siguientes:
 
 \begin{itemize}
 	\item Percepción: programación y diseño de dispositivos embebidos.
@@ -46,33 +48,183 @@ A continuación se enumeran los problemas identificados:
 
 \begin{itemize}
 	\item Persistencia: la arquitectura de datos no es adecuada para el volumen de información manejado, no es escalable y no es posible ofrecer un servicio profesional de análisis de datos.
-	\item Comunicación con radares: los puntos de agregación funcionan con una colección de aplicaciones antiguas que no están correctamente integradas al sistema operativo.
+	\item Comunicación con radares: los puntos de agregación funcionan con aplicaciones antiguas que no están correctamente integradas al sistema operativo.
 	\item Interfaz gráfica: su aspecto es antiguo, no es apta para \emph{smartphones} y su funcionalidad es lenta y limitada.
-	\item Dependencia de \emph{software} sin licencias: la solución actual carece de soporte en puntos críticos y aumenta la superficie de posibles fallas.
+	\item \emph{Software} sin licencias: la solución actual carece de soporte en puntos críticos y aumenta la superficie de posibles fallas.
 \end{itemize}
 
 \section{Descripción técnica-conceptual del proyecto a realizar}
 
+La compañía ATSA debe cumplir con los requerimientos de servicios demandados por los clientes.
+En particular, ofrecer un sistema de telemetría para monitorear y controlar los radares vehiculares.
+Además se debe acceder a los datos históricos de los dispositivos.
+
+El proyecto constará de un \emph{datalogger} ATSA que estará conformado por una plataforma embebida.
+Esta plataforma cumplirá la función de punto de agregación con los dispositivos en campo y se comunicará con un \emph{modem GSM} para acceder a la Internet.
+Además deberá presentar una interfaz gráfica que permita verificar su funcionamiento, modificar su configuración y acceder a los datos que se encuentren guardados dentro del \emph{datalogger} ATSA.
+Finalmente, el equipo deberá utilizar un protocolo de comunicación confiable que minimice el uso de datos.
+
+El cliente tendrá a su disposición una interfaz gráfica que le permita acceder a un sistema ATSA.
+Esta solución permitirá ver todos los datos históricos de sus dispositivos, como así también, las novedades de funcionamiento de sus equipos.
+Además, se le ofrecerá una \emph{API} que permita conectar un sistema propio con el de ATSA.
+
+Se creará una interfaz gráfica para los operadores de ATSA.
+Esto permitirá vender suscripciones del tipo \emph{Helpdesk}.
+Además, se podrá ofrecer al cliente un producto adicional que permita transferir todo el monitoreo y control a los operadores de ATSA.
+
+El proyecto deberá cumplir con los actuales estándares de ciberseguridad y protección de la propiedad intelectual de ATSA.
+Con la finalidad de proteger el patrimonio y reputación de la compañía.
+
+Se construirá una arquitectura de datos que pueda manejar el volumen de información demandado. Esta base de datos permitirá usar el sistema \emph{legacy} y un posible futuro sistema de aprendizaje automático.
+
+En el diagrama presente en la figura \ref{fig:general} se puede observar un esquema del proyecto a realizar y su interacción con las distintas entidades.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{Figuras/diagramaGeneral.png}
+	\caption{diagrama general del proyecto.}
+	\label{fig:general}
+\end{figure}
+
 \section{Alcance del proyecto}
 
 El proyecto incluye en su alcance la creación de un servicio embebido que recoja la información de los radares \emph{Exemis}.
-Ofrecerá telemetría \emph{GSM} para realizar acceder a la Internet.
+Ofrecerá conexión \emph{GSM} para realizar acceder a la Internet.
 Además, se deberá resolver la comunicación con un servidor que forma parte del desarrollo.
 El servidor ofrecerá una interfaz de programación de aplicaciones (API) que permitirá el monitoreo y control de los radares.
 
 Se creará una arquitectura de persistencia moderna que permita la gestión de grandes volúmenes de datos.
+Deberá ofrecer posibilidad de implementar futuros estudios de aprendizaje automático.
+Además, el sistema deberá ser compatible con el \emph{legacy}.
+Finalmente, los datos serán georreferenciados para soportar radares móviles y consultas geográficas.
+
+Se desarrollará una interfaz gráfica de usuario que siga un patrón de diseño \emph{material design} y se comportará adecuadamente según el tamaño de la pantalla del dispositivo utilizado.
 
 
 \section{Supuestos del proyecto}
 
-Para el desarrollo del presente proyecto se supone que se tendrá acceso a la documentación necesaria para desarrollar implementar una comunicación con los radares Exemys.
+Para el desarrollo del presente proyecto se supone que se tendrá acceso a la documentación necesaria para implementar una comunicación con los radares Exemys.
 Además se espera tener acceso al sistema actual con la finalidad de portarlo como \emph{legacy}.
+
+Se espera tener una copia del manual de marca de ATSA con el fin de utilizar la paleta de colores, la tipografía y las reglas de diseño gráfico de la compañía. Se supone que se tendrá una copia de los archivos de tipografía e iconografía.
+
+Finalmente se necesita tener acceso a la red de ATSA para realizar las pruebas que se consideren necesarias. Además de disponer de una infraestructura de desarrollo \emph{GitLab}.
 
 \section{Requerimientos}
 
+\begin{enumerate}
+	\item Grupo de requerimientos asociados al \emph{datalogger} ATSA
+		\begin{enumerate}
+			\item Debe implementar el protocolo del radar
+			\item Debe leer las mediciones del radar
+			\item Debe persistir las mediciones del radar
+			\item Debe leer el estado del radar
+			\item Debe persistir estados anormales del radar
+			\item Debe comunicarse con el sistema ATSA
+			\item Debe presentar una interfaz gráfica de monitoreo y control
+		\end{enumerate}	
+	\item Grupo de requerimientos asociados al servidor del sistema ATSA
+		\begin{enumerate}
+			\item Debe autentificar a los usuarios
+			\item Debe autentificar a los dispositivos
+			\item Debe autentificar a los operadores
+			\item Debe comunicarse con la base de datos
+			\item Debe permitir realizar consultas a la base de datos y descargar los resultados
+			\item Las comunicaciones con entidades externas deberán ser cifradas
+			\item Debe ser compatible con el sistema \emph{legacy}
+			\item Debe ser compatible con soluciones \emph{cloud}
+		\end{enumerate}
+	\item Grupo de requerimientos asociados a la base de datos del sistema ATSA
+		\begin{enumerate}
+			\item Debe manejar grandes volúmenes de datos
+			\item Debe manejar datos georreferenciados
+			\item Debe manejar consultas georreferenciadas
+			\item Debe persistir contraseñas de manera cifrada
+			\item Debe ser compatible con soluciones de \emph{data center}
+		\end{enumerate}
+	\item Grupo de requerimientos asociados a la interfaz de operador ATSA
+		\begin{enumerate}
+			\item Debe ser ergonómica
+			\item Debe permitir ver en vivo el estado de los dispositivos
+		\end{enumerate}
+	\item Grupo de requerimientos asociados a la interfaz de cliente
+		\begin{enumerate}
+			\item Debe ser responsiva
+			\item Debe tener un aspecto moderno y corporativo
+			\item Debe ser ligera para la infraestructura de ATSA
+		\end{enumerate}
+\end{enumerate}
+
 \section{Entregables principales del proyecto}
 
+\begin{itemize}
+	\item Código fuente.
+	\item Documentación técnica interna de ATSA.
+	\item Documentación de API para clientes.
+	\item Manual de usuario.
+	\item Un \emph{datalogger} ATSA funcionando.
+	\item Un sistema ATSA funcionando.
+\end{itemize}
+
 \section{Desglose del trabajo en tareas}
+
+\begin{enumerate}
+	\item Planificación
+	\begin{enumerate}
+		\item Relevamiento de las necesidades
+		\item Análisis de requerimientos
+		\item Confección de la planificación del proyecto
+	\end{enumerate}
+	\item Diseño de la base de datos
+	\begin{enumerate}
+		\item Elección de tecnología
+		\item Diseño de la arquitectura de datos
+		\item Diseño de pruebas
+		\item Escritura del código
+		\item Puesta en marcha
+		\item Replicación de los datos \emph{legacy} 
+		\item Pruebas de funcionamiento
+	\end{enumerate}
+	\item Diseño del servidor ATSA
+	\begin{enumerate}
+		\item Elección de tecnología
+		\item Diseño de pruebas de base de datos
+		\item Escritura de código de conexión con base de datos
+		\item Pruebas de comunicación con base de datos
+		\item Diseño de pruebas de sesión
+		\item Escritura de código del sistema de sesión
+		\item Pruebas del sistema de sesión
+		\item Diseño de pruebas de comunicación con dispositivos
+		\item Escritura de código de comunicación con dispositivos
+		\item Pruebas de comunicación con dispositivos
+		\item Diseño de pruebas de comunicación en vivo
+		\item Escritura de código de comunicación en vivo
+		\item Pruebas de comunicación en vivo
+	\end{enumerate}
+	\item Programación de la interfaz de operador ATSA
+	\begin{enumerate}
+		\item Selección de \emph{framework}
+		\item Escritura de código
+		\item Pruebas con humanos
+	\end{enumerate}
+	\item Programación de la interfaz de usuario
+	\begin{enumerate}
+		\item Selección de \emph{framework}
+		\item Escritura de código
+		\item Pruebas con humanos
+	\end{enumerate}
+	\item Diseño del \emph{datalogger} ATSA
+	\begin{enumerate}
+		\item Elección de plataforma embebida
+		\item Elección de tecnologías de firmware
+		\item Diseño de pruebas de funcionamiento
+		\item Escritura del firmware
+		\item Pruebas de funcionamiento
+		\item Diseño de la interfaz gráfica
+		\item Pruebas de funcionamiento con humanos
+	\end{enumerate}
+	
+\end{enumerate}
 
 \section{Diagrama de Activity On Node}
 
