@@ -8,6 +8,9 @@ headsepline,]{article}
 \usepackage[spanish]{babel}
 \usepackage{palatino}
 \usepackage{graphicx}
+\usepackage{float}
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 
 %opening
 \title{Monitoreo y control de radares ATSA}
@@ -158,7 +161,7 @@ Finalmente se necesita tener acceso a la red de ATSA para realizar las pruebas q
 \section{Entregables principales del proyecto}
 
 \begin{itemize}
-	\item Código fuente.
+	\item Código fuente. 
 	\item Documentación técnica interna de ATSA.
 	\item Documentación de API para clientes.
 	\item Manual de usuario.
@@ -169,64 +172,72 @@ Finalmente se necesita tener acceso a la red de ATSA para realizar las pruebas q
 \section{Desglose del trabajo en tareas}
 
 \begin{enumerate}
-	\item Planificación
+	\item \textbf{Planificación (25 hs)}
 	\begin{enumerate}
-		\item Relevamiento de las necesidades
-		\item Análisis de requerimientos
-		\item Confección de la planificación del proyecto
+		\item Relevamiento de las necesidades (5 hs)
+		\item Análisis de requerimientos (10 hs)
+		\item Confección de la planificación del proyecto (10 hs)
 	\end{enumerate}
-	\item Diseño de la base de datos
+	\item \textbf{Diseño de la base de datos (225 hs)}
 	\begin{enumerate}
-		\item Elección de tecnología
-		\item Diseño de la arquitectura de datos
-		\item Diseño de pruebas
-		\item Escritura del código
-		\item Puesta en marcha
-		\item Replicación de los datos \emph{legacy} 
-		\item Pruebas de funcionamiento
+		\item Elección de tecnología (15 hs)
+		\item Diseño de la arquitectura de datos (50 hs)
+		\item Diseño de pruebas (20 hs)
+		\item Escritura del código (30 hs)
+		\item Puesta en marcha (35 hs)
+		\item Replicación de los datos \emph{legacy} (40 hs)
+		\item Pruebas de funcionamiento (35 hs)
 	\end{enumerate}
-	\item Diseño del servidor ATSA
+	\item \textbf{Diseño del servidor ATSA (100 hs)}
 	\begin{enumerate}
-		\item Elección de tecnología
-		\item Diseño de pruebas de base de datos
-		\item Escritura de código de conexión con base de datos
-		\item Pruebas de comunicación con base de datos
-		\item Diseño de pruebas de sesión
-		\item Escritura de código del sistema de sesión
-		\item Pruebas del sistema de sesión
-		\item Diseño de pruebas de comunicación con dispositivos
-		\item Escritura de código de comunicación con dispositivos
-		\item Pruebas de comunicación con dispositivos
-		\item Diseño de pruebas de comunicación en vivo
-		\item Escritura de código de comunicación en vivo
-		\item Pruebas de comunicación en vivo
+		\item Elección de tecnología (5 hs)
+		\item Diseño de pruebas de base de datos (10 hs)
+		\item Escritura de código de conexión con base de datos (15 hs)
+		\item Pruebas de comunicación con base de datos (5 hs)
+		\item Diseño de pruebas de sesión (5 hs)
+		\item Escritura de código del sistema de sesión (10 hs)
+		\item Pruebas del sistema de sesión (5 hs)
+		\item Diseño de pruebas de comunicación con dispositivos (5 hs)
+		\item Escritura de código de comunicación con dispositivos (10 hs)
+		\item Pruebas de comunicación con dispositivos (5 hs)
+		\item Diseño de pruebas de comunicación en vivo (5 hs)
+		\item Escritura de código de comunicación en vivo (15 hs)
+		\item Pruebas de comunicación en vivo (5 hs)
 	\end{enumerate}
-	\item Programación de la interfaz de operador ATSA
+	\item \textbf{Programación de la interfaz de operador ATSA (25 hs)}
 	\begin{enumerate}
-		\item Selección de \emph{framework}
-		\item Escritura de código
-		\item Pruebas con humanos
+		\item Selección de \emph{framework} (5 hs)
+		\item Escritura de código (10 hs)
+		\item Pruebas con humanos (10 hs)
 	\end{enumerate}
-	\item Programación de la interfaz de usuario
+	\item \textbf{Programación de la interfaz de usuario (25 hs)}
 	\begin{enumerate}
-		\item Selección de \emph{framework}
-		\item Escritura de código
-		\item Pruebas con humanos
+		\item Selección de \emph{framework} (5 hs)
+		\item Escritura de código (10 hs)
+		\item Pruebas con humanos (10 hs)
 	\end{enumerate}
-	\item Diseño del \emph{datalogger} ATSA
+	\item \textbf{Diseño del \emph{datalogger} ATSA (200)}
 	\begin{enumerate}
-		\item Elección de plataforma embebida
-		\item Elección de tecnologías de firmware
-		\item Diseño de pruebas de funcionamiento
-		\item Escritura del firmware
-		\item Pruebas de funcionamiento
-		\item Diseño de la interfaz gráfica
-		\item Pruebas de funcionamiento con humanos
+		\item Elección de plataforma embebida (20 hs)
+		\item Elección de tecnologías de firmware (20 hs)
+		\item Diseño de pruebas de funcionamiento (30 hs)
+		\item Escritura del firmware (40 hs)
+		\item Pruebas de funcionamiento (20 hs)
+		\item Diseño de la interfaz gráfica (40 hs)
+		\item Pruebas de funcionamiento con humanos (30 hs)
 	\end{enumerate}
-	
 \end{enumerate}
 
+Cantidad total de horas: 600 hs
+
 \section{Diagrama de Activity On Node}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Figuras/ActivityOnNode.png}
+	\caption{diagrama de Activity On Node.}
+	\label{fig:activity}
+\end{figure}
 
 \section{Diagrama de Gantt}
 
