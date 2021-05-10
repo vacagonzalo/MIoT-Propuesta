@@ -9,6 +9,14 @@ headsepline,]{article}
 \usepackage{palatino}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
 \renewcommand{\labelenumii}{\theenumii}
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 
@@ -91,7 +99,7 @@ En el diagrama presente en la figura \ref{fig:general} se puede observar un esqu
 
 \section{Alcance del proyecto}
 
-El proyecto incluye en su alcance la creación de un servicio embebido que recoja la información de los radares \emph{Exemis}.
+El proyecto incluye en su alcance la creación de un servicio embebido que recoja la información de los radares \emph{Wavetronix}.
 Ofrecerá conexión \emph{GSM} para realizar acceder a la Internet.
 Además, se deberá resolver la comunicación con un servidor que forma parte del desarrollo.
 El servidor ofrecerá una interfaz de programación de aplicaciones (API) que permitirá el monitoreo y control de los radares.
@@ -106,7 +114,7 @@ Se desarrollará una interfaz gráfica de usuario que siga un patrón de diseño
 
 \section{Supuestos del proyecto}
 
-Para el desarrollo del presente proyecto se supone que se tendrá acceso a la documentación necesaria para implementar una comunicación con los radares Exemys.
+Para el desarrollo del presente proyecto se supone que se tendrá acceso a la documentación necesaria para implementar una comunicación con los radares Wavetronix.
 Además se espera tener acceso al sistema actual con la finalidad de portarlo como \emph{legacy}.
 
 Se espera tener una copia del manual de marca de ATSA con el fin de utilizar la paleta de colores, la tipografía y las reglas de diseño gráfico de la compañía. Se supone que se tendrá una copia de los archivos de tipografía e iconografía.
@@ -174,57 +182,57 @@ Finalmente se necesita tener acceso a la red de ATSA para realizar las pruebas q
 \begin{enumerate}
 	\item \textbf{Planificación (25 hs)}
 	\begin{enumerate}
-		\item Relevamiento de las necesidades (5 hs)
-		\item Análisis de requerimientos (10 hs)
-		\item Confección de la planificación del proyecto (10 hs)
+		\item Planeamiento: relevamiento de las necesidades (5 hs)
+		\item Planeamiento: análisis de requerimientos (10 hs)
+		\item Planeamiento: planificación del proyecto (10 hs)
 	\end{enumerate}
 	\item \textbf{Diseño de la base de datos (225 hs)}
 	\begin{enumerate}
-		\item Elección de tecnología (15 hs)
-		\item Diseño de la arquitectura de datos (50 hs)
-		\item Diseño de pruebas (20 hs)
-		\item Escritura del código (30 hs)
-		\item Puesta en marcha (35 hs)
-		\item Replicación de los datos \emph{legacy} (40 hs)
-		\item Pruebas de funcionamiento (35 hs)
+		\item Base de datos: elección de tecnología (15 hs)
+		\item Base de datos: diseño de arquitectura (50 hs)
+		\item Base de datos: diseño de pruebas (20 hs)
+		\item Base de datos: programación (30 hs)
+		\item Base de datos: puesta en marcha (35 hs)
+		\item Base de datos: migración de datos (40 hs)
+		\item Base de datos: ejecución de pruebas (35 hs)
 	\end{enumerate}
 	\item \textbf{Diseño del servidor ATSA (100 hs)}
 	\begin{enumerate}
-		\item Elección de tecnología (5 hs)
-		\item Diseño de pruebas de base de datos (10 hs)
-		\item Escritura de código de conexión con base de datos (15 hs)
-		\item Pruebas de comunicación con base de datos (5 hs)
-		\item Diseño de pruebas de sesión (5 hs)
-		\item Escritura de código del sistema de sesión (10 hs)
-		\item Pruebas del sistema de sesión (5 hs)
-		\item Diseño de pruebas de comunicación con dispositivos (5 hs)
-		\item Escritura de código de comunicación con dispositivos (10 hs)
-		\item Pruebas de comunicación con dispositivos (5 hs)
-		\item Diseño de pruebas de comunicación en vivo (5 hs)
-		\item Escritura de código de comunicación en vivo (15 hs)
-		\item Pruebas de comunicación en vivo (5 hs)
+		\item Servidor: elección de tecnología (5 hs)
+		\item Servidor - DB: diseño de pruebas (10 hs)
+		\item Servidor - DB: programación (15 hs)
+		\item Servidor - DB: ejecución de pruebas (5 hs)
+		\item Servidor - Sesión: diseño de pruebas (5 hs)
+		\item Servidor - Sesión: programación (10 hs)
+		\item Servidor - Sesión: ejecución de pruebas (5 hs)
+		\item Servidor - Datalogger: diseño de pruebas (5 hs)
+		\item Servidor - Datalogger: programación (10 hs)
+		\item Servidor - Datalogger: ejecución de pruebas (5 hs)
+		\item Servidor - Streaming: diseño de pruebas (5 hs)
+		\item Servidor - Streaming: programación (15 hs)
+		\item Servidor - Streaming: ejecución de pruebas (5 hs)
 	\end{enumerate}
 	\item \textbf{Programación de la interfaz de operador ATSA (25 hs)}
 	\begin{enumerate}
-		\item Selección de \emph{framework} (5 hs)
-		\item Escritura de código (10 hs)
-		\item Pruebas con humanos (10 hs)
+		\item Interfaz operador: selección de tecnología (5 hs)
+		\item Interfaz operador: programación (10 hs)
+		\item Interfaz operador: Pruebas con humanos (10 hs)
 	\end{enumerate}
 	\item \textbf{Programación de la interfaz de usuario (25 hs)}
 	\begin{enumerate}
-		\item Selección de \emph{framework} (5 hs)
-		\item Escritura de código (10 hs)
-		\item Pruebas con humanos (10 hs)
+		\item Interfaz usuario: selección de tecnología (5 hs)
+		\item Interfaz usuario: programación (10 hs)
+		\item Interfaz usuario: pruebas con humanos (10 hs)
 	\end{enumerate}
 	\item \textbf{Diseño del \emph{datalogger} ATSA (200)}
 	\begin{enumerate}
-		\item Elección de plataforma embebida (20 hs)
-		\item Elección de tecnologías de firmware (20 hs)
-		\item Diseño de pruebas de funcionamiento (30 hs)
-		\item Escritura del firmware (40 hs)
-		\item Pruebas de funcionamiento (20 hs)
-		\item Diseño de la interfaz gráfica (40 hs)
-		\item Pruebas de funcionamiento con humanos (30 hs)
+		\item Datalogger: elección de plataforma (20 hs)
+		\item Datalogger: elección de tecnología (20 hs)
+		\item Datalogger: diseño de pruebas (30 hs)
+		\item Datalogger: programación (40 hs)
+		\item Datalogger: ejecución de pruebas (20 hs)
+		\item Datalogger: interfaz gráfica (40 hs)
+		\item Datalogger: pruebas con humanos (30 hs)
 	\end{enumerate}
 \end{enumerate}
 
@@ -299,6 +307,10 @@ La planificación se puede observar en las figuras \ref{fig:gantt1}, \ref{fig:ga
 Las referencias para leer la matriz de asignación de responsabilidades son las siguientes:
 
 \begin{itemize}
+	\item WBS = Código de tarea
+	\item Responsable = Gonzalo Vaca
+	\item Orientador = Marcelo Macchi
+	\item Cliente = Daniel Bettatis
 	\item P = Responsabilidad primaria
 	\item S = Responsabilidad secundaria
 	\item A = Aprobación
@@ -306,55 +318,49 @@ Las referencias para leer la matriz de asignación de responsabilidades son las 
 	\item C = Consultado
 \end{itemize}
 
-A continuación se muestran las tablas de asignación de responsabilidades:
+A continuación se muestra la tabla de asignación de responsabilidades:
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{cccc}
-		Código WBS & \begin{tabular}[c]{@{}c@{}}Gonzalo Vaca\\ Responsable\end{tabular} & \begin{tabular}[c]{@{}c@{}}Marcelo Macchi\\ Orientador\end{tabular} & \begin{tabular}[c]{@{}c@{}}Daniel Bettatis\\ Cliente\end{tabular} \\ \hline
-		1.1 & S & P & I \\
-		1.2 & P & C &   \\
-		1.3 & P & A & I \\
-		2.1 & P & C &   \\
-		2.2 & P & I &   \\
-		2.3 & P & C &   \\
-		2.4 & P & I &   \\
-		2.5 & S & P & I \\
-		2.6 & P & S & A \\
-		2.7 & P & A & I \\
-		3.1 & P & C & I \\
-		3.2 & P & C &   \\
-		3.3 & P & I &   \\
-		3.4 & P & A & I \\
-		3.5 & P & A &   \\
-		3.6 & P & I &   \\
-		3.7 & P & A & I \\
-		3.8 & P & C &   \\
-		3.9 & P & I &   \\
-		3.10 & P & A & I \\
-		3.11 & P & C &  \\
-		3.12 & P & I &  \\
-		3.13 & P & A & I
-	\end{tabular}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{cccc}
-		Código WBS & \begin{tabular}[c]{@{}c@{}}Gonzalo Vaca\\ Responsable\end{tabular} & \begin{tabular}[c]{@{}c@{}}Marcelo Macchi\\ Orientador\end{tabular} & \begin{tabular}[c]{@{}c@{}}Daniel Bettatis\\ Cliente\end{tabular} \\ \hline
-		4.1 & P & I &  \\
-		4.2 & P & I &  \\
-		4.3 & P & A & I \\
-		5.1 & P & I &  \\
-		5.2 & P & I &  \\
-		5.3 & P & A & I \\
-		6.1 & P & S & C \\
-		6.2 & P & C &  \\
-		6.3 & P & I &  \\
-		6.4 & P & I &  \\
-		6.5 & P & A & I \\
-		6.6 & P & C &  \\
-		6.7 & P & A & I
+	\begin{tabular}{ccccc}
+		WBS & Tarea & Responsable & Orientador & Cliente \\ \hline
+		1.1 & Planeamiento: relevamiento de necesidades & S & P & A \\
+		1.2 & Planeamiento: análisis de requerimientos & P & C &  I \\
+		1.3 & Planeamiento: planificación del proyecto & P & A & A \\ \hline
+		2.1 & Base de datos: elección de tecnología & P & C &   \\
+		2.2 & Base de datos: diseño de arquitectura & P & I &   \\
+		2.3 & Base de datos: diseño de pruebas & P & C &   \\
+		2.4 & Base de datos: programación & P & I &   \\
+		2.5 & Base de datos: puesta en marcha & S & P & I \\
+		2.6 & Base de datos: migración de datos & P & S & A \\
+		2.7 & Base de datos: ejecución de pruebas & P & A & I \\ \hline
+		3.1 & Servidor: elección de tecnología & P & C & I \\
+		3.2 & Servidor - DB: diseño de pruebas & P & C &   \\
+		3.3 & Servidor - DB: programación  & P & I &   \\
+		3.4 & Servidor - DB: ejecución de pruebas & P & A & I \\
+		3.5 & Servidor - Sesión: diseño de pruebas & P & A &   \\
+		3.6 & Servidor - Sesión: programación & P & I &   \\
+		3.7 & Servidor - Sesión: ejecución de pruebas & P & A & I \\
+		3.8 & Servidor - Logger: diseño de pruebas & P & C &   \\
+		3.9 & Servidor - Logger: programación & P & I &   \\
+		3.10 & Servidor - Logger: ejecución de pruebas & P & A & I \\
+		3.11 & Servidor - Streming: diseño de pruebas & P & C &  \\
+		3.12 & Servidor - Streming: programación & P & I &  \\
+		3.13 & Servidor - Streming: ejecución de pruebas & P & A & I \\ \hline
+		4.1 & Interfaz operador: selección de tecnología & P & A & I \\
+		4.2 & Interfaz operador: programación & P & I & \\
+		4.3 & Interfaz operador: pruebas con humanos & P & I & \\ \hline
+		5.1 & Interfaz cliente: selección de tecnología & P & A & I \\
+		5.2 & Interfaz cliente: programación & P & I & \\
+		5.3 & Interfaz cliente: pruebas con humanos & P & I & \\ \hline
+		6.1 & Datalogger: elección de plataforma & P & A & I \\
+		6.2 & Datalogger: elección de tecnología & P & S & C \\
+		6.3 & Datalogger: diseño de pruebas & P & C & \\
+		6.4 & Datalogger: programación & P & I & \\
+		6.5 & Datalogger: ejecución de pruebas & P & A & I \\
+		6.6 & Datalogger: interfaz gráfica & P & C & \\
+		6.7 & Datalogger: pruebas con humanos & P & A & I \\ \hline
+		
 	\end{tabular}
 \end{table}
 
